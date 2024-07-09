@@ -1,0 +1,187 @@
+% ----
+% COMP1204 CW1 Report Document
+% ----
+\documentclass[]{article}
+
+% Reduce the margin size, as they're quite big by default
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+
+
+
+\title{\Huge COMP1204: Data Management \\ Coursework One: Hurricane Monitoring }
+% Update these!
+\author{\Large Constantinos Psaras \\ cp2n23}
+
+\lstdefinestyle{scriptstyle}{
+  language=bash,
+  basicstyle=\ttfamily\color{blue},
+  commentstyle=\color{green!40!black},
+  keywordstyle=\color{orange},
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  breakatwhitespace=true,
+  numbers=left,
+  frame=single,
+  rulecolor=\color{black},
+  showstringspaces=false,
+}
+
+% Actually start the report content
+\begin{document}
+
+% Add title, author and date info
+
+\newgeometry{top=8cm}
+\vfill
+\maketitle
+\thispagestyle{empty}
+\restoregeometry
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+
+\section{Introduction}
+In response to the rising challenges posed by tropical cyclones, 
+the National Oceanographic and Atmospheric Administration (NOAA) has dedicated efforts to bolster its capabilities in storm tracking and analysis.
+As part of this initiative, our data science team at the NOAA Centre has embarked on a mission to extract crucial storm data from tropical cyclone reports. 
+Focused on harnessing the power of advanced data analysis techniques, our goal is to transform raw storm information into insightful visualizations and maps. 
+Through this technical report, we aim to showcase the methodologies employed, the data extraction processes implemented, and the resulting visual representations, 
+contributing to a more comprehensive understanding of tropical cyclone behavior and aiding in proactive disaster management efforts. 
+My role was to write a bash script which takes the captured readings from kml files and extracts the specified data into a csv file.
+Another provided bash script taked my csv files and generates map plots based on the readings.
+\newpage
+\section{Create CSV Script}
+\begin{lstlisting}[style=scriptstyle]
+#!/bin/bash
+#Script that extracts information from a KML file and generates a CSV file
+    
+#Checks if 2 arguements were passed, if not exits
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <input.kml> <output.csv>"
+    exit 1
+fi
+    
+#Assigns the 2 arguements to input_file and output_file respectively
+input_file="$1"
+output_file="$2"
+    
+#Adds field headers to the output CSV file
+echo "Timestamp,Latitude,Longitude,MinSeaLevelPressure,MaxIntensity" > "$output_file"
+
+#Awk extracts all measurements enclosed in specified tags and adds units of measurement accordingly    
+#At the end, if all required fields have values, they get appended to the specified output csv file
+awk -F '[<>]' '
+    /<dtg>/ { timestamp = $3 } 
+    /<lat>/ { latitude = $3 " N" } 
+    /<lon>/ { longitude = $3 " W" } 
+    /<minSeaLevelPres>/ {min_pressure = $3 " mb" } 
+    /<intensity>/ { max_intensity = $3 " knots" } 
+    /<\/Placemark>/ {
+    
+    if (timestamp && latitude && longitude && min_pressure && max_intensity) {
+        print timestamp "," latitude "," longitude "," min_pressure "," max_intensity
+    }
+        timestamp = ""
+        latitude = ""
+        longitude = ""
+        min_pressure = ""
+        max_intensity = ""
+    }
+    
+
+' "$input_file" >> "$output_file"
+
+#Prints confirmation uppon succesful creation of the csv file
+echo "CSV file generated: $output_file"
+
+\end{lstlisting}
+Explanation: 
+\begin{itemize}
+    \item Beginning with an if statement, the script checks if the number of command-line arguments is exactly 2. If not, it prints a usage message and exits.
+    \item The two arguments are assigned to \texttt{input\_file} and \texttt{output\_file} respectively.
+    \item Field/column names are printed to the output file.
+    \item The \texttt{awk} command then processes the \texttt{input\_file}. It sets the field separator as any character between \texttt{<}, and \texttt{>} using \texttt{-F '[<>]'}.
+    \item For each line, it checks for specific tags (\texttt{<dtg>, <lat>, <lon>, <minSeaLevelPres>, <intensity>}), extracts their values and adds an appropriate unit of measurement.
+    \item When it encounters \texttt{</Placemark>}, it checks if all required fields have values. If yes, it appends aquired values to the specified output csv file using using \texttt{>>}.
+    \item Upon succesful processing and creation of a csv file, a confirmation message is printed to the console.
+\end{itemize}
+
+\clearpage
+
+\section{Storm Plots}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{al012020.png}
+    \caption{Plot generated from al012020.kml file}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{al102020.png}
+    \caption{Plot generated from al102020.kml file}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{al112020.png}
+    \caption{Plot generated from al112020.kml file}
+    \label{fig:sample}
+\end{figure}
+
+\clearpage
+\section{Git Conflict Handling}
+\begin{lstlisting}[style=scriptstyle]
+import pandas as pd
+import math
+import os
+import glob
+import matplotlib.pyplot as plt
+user_key = 22653 #Kept the original user key.
+
+def plot_all_csv_pressure():
+    path = os.getcwd()
+    csv_files = glob.glob(os.path.join(path, '*.csv'))
+
+    for f in csv_files:
+        storm = pd.read_csv(f)
+        storm['Pressure'].plot()
+        plt.show()
+
+def plot_all_csv_intensity():
+    path = os.getcwd()
+    csv_files = glob.glob(os.path.join(path, '*.csv'))
+
+    for f in csv_files:
+        storm = pd.read_csv(f)
+        storm['Intensity'].plot()
+        plt.show()
+
+
+
+\end{lstlisting}
+After running conflict-script.sh, a new branch called python-addon was added to my project with a file called python-plot-script.py.
+The file was also created in my main branch. I realized their contents differed after I got an error when trying to merge the 2 branches.
+I then switched to my main branch using the command 'git checkout main', then edited the file python-plot-script.py through the nano text editor.
+Then I executed the command 'git add python-plot-script.py' to add the file to the staging area and then executed 'git commit' to capture the staged changes.
+I finally pushed the changes back to my project without any errors.
+Commands used to resolve conflict:
+\begin{itemize}
+    \item ./conflict-script.sh
+    \item git checkout main
+    \item git merge python-addon
+    \item Conflict appear here, after resolving:
+    \item git add python-plot-script.py
+    \item git commit -m "Conflict resolved"
+    \item git push origin main
+\end{itemize}
+\end{document}

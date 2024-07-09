@@ -1,0 +1,183 @@
+commit 8c58851139301590252c195881fe1e00322628b9
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Wed Feb 21 19:29:11 2024 +0000
+
+    Finalized report, added more comments to bash script
+
+commit b75e3d8515aafedf67ce7f2b2b4de77a66296cde
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Tue Feb 20 11:15:50 2024 +0000
+
+    Added the conflicted script to my report
+
+commit 11c6252713ecc34d51c3559798021813e886c946
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 20:53:43 2024 +0000
+
+    comp1204_cw1.tar.gz generated with all files
+
+commit 26bbb7423c5bb1a119683a44c4d2978a15b6a8d1
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 20:43:30 2024 +0000
+
+    Added in-line comments to script on the report
+
+commit 8106b488e07c60e93bc72964637d1261f9236d7c
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 20:28:34 2024 +0000
+
+    Added a short explanation to my report on how I went about resolving the conflict encountered
+
+commit 01c5a9ca78cc4dbaeb435a58742e9659d5f49ebd
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 20:20:14 2024 +0000
+
+    Testing that .tex file behaves the same on school server
+
+commit d7e25a43e1b41a54f2080a27251e0e8da9b5f7c9
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 20:17:18 2024 +0000
+
+    Added the three figures to my pdf document
+
+commit c4516c4e71c8319959df12a91c2212e5b95b7728
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 20:08:35 2024 +0000
+
+    Generated three different plot using the create_map_plot.sh script
+
+commit 79b5f4c0aa624dd4fc9b3060c1d92b3ec60e8cd0
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 20:05:56 2024 +0000
+
+    Made three new .csv files for the plots needed on the report
+
+commit 2dd6f500bb3481b7c03ae21dcb9d4aca2bea7c87
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 20:02:07 2024 +0000
+
+    Added a short introduction, my script and an explanation for it in report.tex
+
+commit 0ca4cce66a96d6b955f264f0addc9cf2690a946e
+Merge: 1282d48 925327b
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:38:43 2024 +0000
+
+    Merge python-addon branch resolving conflicts
+
+commit 1282d4869f70915af33470d9179f0d69966aca7f
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:28:37 2024 +0000
+
+    Initial creation of python-plot-script from working branch
+
+commit 925327b3be9f0728e076b78a97335ca75403ec2b
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:28:36 2024 +0000
+
+    Added new function to the python-plot-script from python-addon
+
+commit 32997ef9eb68c9b3550814b7d525a3ea2820c8d9
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:28:36 2024 +0000
+
+    Cleaning old scripts
+
+commit c6577192880a1638d9ef227122ff455139dc1d09
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:09:38 2024 +0000
+
+    Testing create_map_plot.sh script with a different kml file, output is output2.png
+
+commit 47b517a577d18f9f00f9942ab511f7e11c980e49
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:08:33 2024 +0000
+
+    Testing create_map_plot.sh script with a different kml file, output is output1.png
+
+commit 2454ac75ce3ec852c04998e3fd4ea5f6e2e768a3
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:06:51 2024 +0000
+
+    Testing create_map_plot.sh script with a different kml file, output is output1.png
+
+commit d79a7adeb6aedb857bc2014401fe154aec4981c4
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 19:05:16 2024 +0000
+
+    Testing create_map_plot.sh script, output is output.png
+
+commit 78e7eae82b173b8a280652ec8b01255439aa08ca
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 19:01:36 2024 +0000
+
+    Restored default plotting files
+
+commit 71081dc556ff2784466316d7e4867536c1eb777b
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 18:59:25 2024 +0000
+
+    Restored default plotting files
+
+commit ff75402b3baaa150ed7179f29ffa5793d9669912
+Merge: d14ce22 387e502
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 18:57:58 2024 +0000
+
+    Merge remote changes and resolve conflicts
+    
+    Merge branch 'main' of https://git.soton.ac.uk/cp2n23/comp1204-cp2n23-cwk1
+
+commit d14ce22fa5800edbf472cf22c67b34f7008e21ab
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Fri Feb 16 18:54:17 2024 +0000
+
+    Restored default plotting files
+
+commit 387e502c7e9bc6ae06d382ebcacd55960c9dac12
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Fri Feb 16 13:29:20 2024 +0000
+
+    Used plot-locations-on-map.gpi to generate output.png
+
+commit a7f291d59a5788d7a2d422e4ac7820a9e100bc16
+Author: C.Psaras <cp2n23@srv02094.soton.ac.uk>
+Date:   Tue Feb 13 18:11:08 2024 +0000
+
+    Created compressed file from create_csv.sh to test submission
+
+commit 22342208c7318b1d62030cdeb5c2d24161329082
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Tue Feb 13 17:17:32 2024 +0000
+
+    pokemon say
+
+commit e49dd604d6a991f542721e290e95bfc7380fe430
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Mon Feb 12 19:43:07 2024 +0000
+
+    Added units of measurement
+
+commit 96c61cc4b0bb61878636569f08336ef676d3a8e9
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Mon Feb 12 19:40:25 2024 +0000
+
+    Added headers
+
+commit 4571e9eda4c18a4dc947ed015d535e9015b7c141
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Mon Feb 12 19:28:41 2024 +0000
+
+    Updated create_csv
+
+commit 7e75485926915a16054492072268d2da3a8503a1
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Mon Feb 12 19:07:45 2024 +0000
+
+    First try
+
+commit a729d0de673fa976f9ba661625372b5031ce15ea
+Author: cp2n23 <cp2n23@soton.ac.uk>
+Date:   Mon Feb 12 19:00:23 2024 +0000
+
+    Given Material
