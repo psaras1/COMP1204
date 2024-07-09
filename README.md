@@ -3,7 +3,7 @@
 ## Coursework 1
 This project tested:
 * Unix scripting for file processing
-* Resport writing using LaTeX
+* Report writing using LaTeX
 * Use of Git for version control
 
 ## Coursework 2
